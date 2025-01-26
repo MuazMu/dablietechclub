@@ -37,7 +37,7 @@ function App() {
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-2">
               <div className="w-10 h-10 relative">
-                <div className="absolute inset-0 bg-white rounded-lg transform -rotate-12"></div>
+              <div className="absolute inset-0 bg-white"></div>
                 <div className="absolute inset-0 flex items-center justify-center">
                   <img 
                     src="/techlogo.svg" 
@@ -175,22 +175,37 @@ function App() {
         </div>
       </section>
 
-          {/* Portfolio Section */}
+      {/* Portfolio Section */}
       <section id="portfolio" className="py-20 bg-zinc-900">
         <div className="container mx-auto px-6">
           <h2 className="text-3xl font-bold mb-12 text-center">Featured Projects</h2>
           <div className="grid md:grid-cols-2 gap-8">
-            {[
+            {[               
               {
-                title: "AI-Powered Analytics",
-                desc: "Machine learning solution for predictive analytics",
-                image: "https://images.unsplash.com/photo-1518932945647-7a1c969f8be2?auto=format&fit=crop&q=80&w=1000"
+                title: "Trend Scope",
+                desc: "A system that predicts emerging trends by analyzing patterns in data, enabling proactive decision-making and strategic planning.",
+                image: "/trendscope.png",
+               link: "#"
               },
               {
-                title: "Smart City Platform",
-                desc: "IoT integration for urban infrastructure",
-                image: "https://images.unsplash.com/photo-1573804633927-bfcbcd909acd?auto=format&fit=crop&q=80&w=1000"
-              }
+                title: "Dablie Website",
+                desc: "Empowering the next generation of tech innovators through collaboration, learning, and cutting-edge projects.",
+                image: "/dablieweb.png",
+                link: "#"
+              },
+              {
+                title: "Robomod",
+                desc: "AI-powered Telegram group moderator bot with advanced moderation and engaging gamification features.",
+                image: "/robobot.png",
+                link: "#"
+              },
+              {
+                title: "Typless",
+                desc: "Streamline your social media strategy with a powerful platform that enables seamless scheduling and posting across multiple social media channels simultaneously, saving time and maximizing reach.",
+                image: "/typless2.png",
+                link: "#"
+              },
+             
             ].map((project, i) => (
               <div key={i} className="group relative overflow-hidden rounded-xl">
                 <img 
@@ -202,9 +217,10 @@ function App() {
                   <div className="absolute bottom-0 p-6">
                     <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
                     <p className="text-gray-300 mb-4">{project.desc}</p>
-                    <button className="flex items-center gap-2 text-white hover:text-gray-300 transition-colors">
-                      View Project <ExternalLink className="w-4 h-4" />
-                    </button>
+                    {/* Button Link */}
+                    <a href={project.link} className="flex items-center gap-2 text-white hover:text-gray-300 transition-colors">
+                      Coming Soon <ExternalLink className="w-4 h-4" />
+                    </a>
                   </div>
                 </div>
               </div>
@@ -212,6 +228,7 @@ function App() {
           </div>
         </div>
       </section>
+
 
       {/* Departments Section */}
       <section id="departments" className="py-20">
@@ -237,27 +254,59 @@ function App() {
       </section>
 
       {/* Partners Section */}
-      <section id="partners" className="py-20 bg-zinc-900">
+      <section id="partners" className="py-20 bg-zinc-900"> 
         <div className="container mx-auto px-6">
-          <h2 className="text-3xl font-bold mb-12 text-center">Our Partners</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center">
+          <h2 className="text-3xl font-bold mb-12 text-center text-white">Our Partners</h2>
+          <div 
+            className={`grid ${
+              // Adjust grid based on the number of uncommented items
+              [
+                {
+                  image: "https://dablie.org/leadership%20page/assests/images/logo.png",
+                  link: "https://dablie.org" 
+                },
+                /* More items here */
+              ].length === 1
+                ? "grid-cols-1 justify-items-center"
+                : "grid-cols-2 md:grid-cols-4 gap-8 items-center"
+            }`}
+          >
             {[
-              "https://dablie.org/leadership%20page/assests/images/logo.png",
-              "https://images.unsplash.com/photo-1614680376593-902f74cf0d41?auto=format&fit=crop&q=80&w=400",
-              "https://images.unsplash.com/photo-1614680376408-12c8c384c640?auto=format&fit=crop&q=80&w=400",
-              "https://images.unsplash.com/photo-1614680376739-8d7c8f0ec613?auto=format&fit=crop&q=80&w=400"
-            ].map((logo, i) => (
+              {
+                image: "https://dablie.org/leadership%20page/assests/images/logo.png",
+                link: "https://dablie.org" 
+              },
+              /*{
+                image: "https://images.unsplash.com/photo-1614680376593-902f74cf0d41?auto=format&fit=crop&q=80&w=400",
+                link: "https://example.com/partner2" 
+              },
+              {
+                image: "https://images.unsplash.com/photo-1614680376408-12c8c384c640?auto=format&fit=crop&q=80&w=400",
+                link: "https://example.com/partner3"
+              },
+              {
+                image: "https://images.unsplash.com/photo-1614680376739-8d7c8f0ec613?auto=format&fit=crop&q=80&w=400",
+                link: "https://example.com/partner4" // Replace with the actual link
+              }*/
+            ].map((partner, i) => (
               <div key={i} className="p-6 bg-black/30 rounded-xl hover:bg-black/50 transition-colors duration-300">
-                <img 
-                  src={logo} 
-                  alt={`Partner ${i + 1}`}
-                  className="w-full h-12 object-contain filter brightness-0 invert opacity-70 hover:opacity-100 transition-opacity duration-300"
-                />
+                <a
+                  href={partner.link} // Link to redirect to
+                  target="_blank" // Open in a new tab
+                  rel="noopener noreferrer" // Security best practice
+                >
+                  <img 
+                    src={partner.image} 
+                    alt={`Partner ${i + 1}`}
+                    className="w-full h-12 object-contain transition-opacity duration-300"
+                  />
+                </a>
               </div>
             ))}
           </div>
         </div>
       </section>
+
 
       {/* Footer */}
       <footer className="bg-black py-12">
@@ -283,7 +332,7 @@ function App() {
               <h4 className="font-semibold mb-4">Contact</h4>
               <p className="text-gray-400">
                 Email: info@dablietech.com<br />
-                Location: Innovation Hub, Tech Valley
+                Location: Sarbet, Next to King's Hotel
               </p>
             </div>
           </div>
