@@ -40,7 +40,7 @@ function App() {
                 <div className="absolute inset-0 bg-white rounded-lg transform -rotate-12"></div>
                 <div className="absolute inset-0 flex items-center justify-center">
                   <img 
-                    src="./public/techlogo.svg" 
+                    src="/techlogo.svg" 
                     alt="Logo" 
                     className="w-8 h-8" // Adjust the size as needed
                   />
