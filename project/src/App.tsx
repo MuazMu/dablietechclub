@@ -283,7 +283,7 @@ function App() {
               <h4 className="font-semibold mb-4">Contact</h4>
               <p className="text-gray-400">
                 Email: info@dablietech.com<br />
-                Location: Innovation Hub, Tech Valley
+                Location: Sarbet, Next to King's Hotel
               </p>
             </div>
           </div>
