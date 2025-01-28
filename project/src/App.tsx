@@ -75,15 +75,15 @@ function App() {
         </div>
 
         {/* Mobile Menu Overlay */}
-        <div className={`fixed inset-0 bg-black/95 backdrop-blur-lg transform transition-transform duration-300 ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'} md:hidden`}>
-          <div className="flex flex-col items-center justify-center h-full space-y-8 text-lg">
-            <a href="#about" onClick={closeMobileMenu} className="hover:text-gray-300 transition-colors">About</a>
-            <a href="#services" onClick={closeMobileMenu} className="hover:text-gray-300 transition-colors">Services</a>
-            <a href="#departments" onClick={closeMobileMenu} className="hover:text-gray-300 transition-colors">Departments</a>
-            <a href="#portfolio" onClick={closeMobileMenu} className="hover:text-gray-300 transition-colors">Portfolio</a>
-            <a href="#partners" onClick={closeMobileMenu} className="hover:text-gray-300 transition-colors">Partners</a>
-          </div>
+      <div className={`fixed inset-0 bg-black text-white backdrop-blur-md transition-transform duration-300 ${isMobileMenuOpen ? "translate-x-0" : "translate-x-full"} md:hidden`}>
+        <div className="flex flex-col items-center justify-center h-full space-y-8 text-lg">
+          <a href="#about" onClick={closeMobileMenu} className="hover:text-gray-300 transition-colors">About</a>
+          <a href="#services" onClick={closeMobileMenu} className="hover:text-gray-300 transition-colors">Services</a>
+          <a href="#departments" onClick={closeMobileMenu} className="hover:text-gray-300 transition-colors">Departments</a>
+          <a href="#portfolio" onClick={closeMobileMenu} className="hover:text-gray-300 transition-colors">Portfolio</a>
+          <a href="#partners" onClick={closeMobileMenu} className="hover:text-gray-300 transition-colors">Partners</a>
         </div>
+      </div>
       </nav>
 
       <section className="pt-32 pb-20 px-6">
