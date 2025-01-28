@@ -32,12 +32,12 @@ function App() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-black via-zinc-900 to-black text-white">
       {/* Hero Section */}
-      <nav className="fixed w-full bg-black/80 backdrop-blur-sm z-50">
+      <nav className="fixed w-full bg-black/90 backdrop-blur-sm z-50">
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-2">
               <div className="w-10 h-10 relative">
-              <div className="absolute inset-0 bg-white"></div>
+                <div className="absolute inset-0 bg-white"></div>
                 <div className="absolute inset-0 flex items-center justify-center">
                   <img 
                     src="/techlogo.svg" 
@@ -180,32 +180,31 @@ function App() {
         <div className="container mx-auto px-6">
           <h2 className="text-3xl font-bold mb-12 text-center">Featured Projects</h2>
           <div className="grid md:grid-cols-2 gap-8">
-            {[               
+            {[
               {
                 title: "Trend Scope",
-                desc: "A system that predicts emerging trends by analyzing patterns in data, enabling proactive decision-making and strategic planning.",
+                desc: "Trading software that uses statistical models and historical trends to make short/long term investments in all kinds of securities, assets, commodities and currency.",
                 image: "/trendscope.png",
-               link: "#"
+                //link: "#" (No link provided)
               },
               {
                 title: "Dablie Website",
                 desc: "Empowering the next generation of tech innovators through collaboration, learning, and cutting-edge projects.",
-                image: "/dablieweb.png",
-                link: "#"
+                image: "/dablieweb2.png",
+                link: "https://dablie.org/" // Link provided
               },
               {
                 title: "Robomod",
                 desc: "AI-powered Telegram group moderator bot with advanced moderation and engaging gamification features.",
                 image: "/robobot.png",
-                link: "#"
+                //link: "#" (No link provided)
               },
               {
                 title: "Typless",
                 desc: "Streamline your social media strategy with a powerful platform that enables seamless scheduling and posting across multiple social media channels simultaneously, saving time and maximizing reach.",
                 image: "/typless2.png",
-                link: "#"
+                //link: "#" (No link provided)
               },
-             
             ].map((project, i) => (
               <div key={i} className="group relative overflow-hidden rounded-xl">
                 <img 
@@ -217,10 +216,21 @@ function App() {
                   <div className="absolute bottom-0 p-6">
                     <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
                     <p className="text-gray-300 mb-4">{project.desc}</p>
-                    {/* Button Link */}
-                    <a href={project.link} className="flex items-center gap-2 text-white hover:text-gray-300 transition-colors">
-                      Coming Soon <ExternalLink className="w-4 h-4" />
-                    </a>
+                    {/* Conditional rendering for link */}
+                    {project.link ? (
+                      <a 
+                        href={project.link} 
+                        className="flex items-center gap-2 text-white hover:text-gray-300 transition-colors"
+                        target="_blank" // Open link in a new tab
+                        rel="noopener noreferrer" // Security best practice
+                      >
+                        View Project <ExternalLink className="w-4 h-4" />
+                      </a>
+                    ) : (
+                      <span className="flex items-center gap-2 text-white">
+                        Coming Soon
+                      </span>
+                    )}
                   </div>
                 </div>
               </div>
@@ -228,7 +238,6 @@ function App() {
           </div>
         </div>
       </section>
-
 
       {/* Departments Section */}
       <section id="departments" className="py-20">
@@ -289,7 +298,10 @@ function App() {
                 link: "https://example.com/partner4" // Replace with the actual link
               }*/
             ].map((partner, i) => (
-              <div key={i} className="p-6 bg-black/30 rounded-xl hover:bg-black/50 transition-colors duration-300">
+              <div 
+                key={i} 
+                className="p-6 bg-white rounded-xl hover:bg-gray-100 transition-colors duration-300" // White background
+              >
                 <a
                   href={partner.link} // Link to redirect to
                   target="_blank" // Open in a new tab
@@ -306,7 +318,6 @@ function App() {
           </div>
         </div>
       </section>
-
 
       {/* Footer */}
       <footer className="bg-black py-12">
